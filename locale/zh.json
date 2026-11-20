@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "插件分类",
+    "description": "在「分类」标签页按用途整理已安装的插件，并为新装插件自动补中文标题与说明。",
+    "detail": "docs/DETAIL.md"
+  },
+  "title": "分类",
+  "loading": "加载中…",
+  "unavailable": "当前 Profile 未启用插件管理",
+  "error": "读取插件列表失败，稍后重试",
+  "empty": "还没有装第三方插件",
+  "other": "其他",
+  "changeCategory": "修改分类",
+  "auto": "自动归类",
+  "newCategory": "新建分类…",
+  "newPlaceholder": "新分类名",
+  "ok": "确定",
+  "cancel": "取消",
+  "unit": "个"
+}

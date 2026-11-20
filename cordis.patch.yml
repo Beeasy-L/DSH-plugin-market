@@ -1,0 +1,3 @@
+- insert:
+    - id: plugin-categorized
+      name: 'dsh-plugin-categorized'

@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": "Plugin categories",
+    "description": "Groups installed plugins by purpose in a Categories tab and auto-translates new plugins to Chinese.",
+    "detail": "docs/DETAIL.md"
+  },
+  "title": "Categories",
+  "loading": "Loading…",
+  "unavailable": "Plugin management is not available in this profile",
+  "error": "Failed to read plugins, try again later",
+  "empty": "No third-party plugins installed yet",
+  "other": "Other",
+  "changeCategory": "Change category",
+  "auto": "Auto",
+  "newCategory": "New category…",
+  "newPlaceholder": "Category name",
+  "ok": "OK",
+  "cancel": "Cancel",
+  "unit": ""
+}

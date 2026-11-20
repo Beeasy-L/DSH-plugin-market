@@ -1,0 +1,49 @@
+{
+  "name": "dsh-plugin-categorized",
+  "version": "1.0.0",
+  "description": "插件分类：在「分类」标签页按用途整理已安装的插件，并为新装插件自动补中文标题与说明。Groups installed plugins by purpose in a Categories tab and auto-translates new plugins to Chinese.",
+  "type": "module",
+  "main": "index.js",
+  "icon": "icon.svg",
+  "exports": {
+    ".": { "default": "./index.js" },
+    "./client": { "default": "./client.js" },
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "plugin-manager",
+    "plugin-categories",
+    "i18n",
+    "translation",
+    "chinese"
+  ],
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": { "dsh": ">=0.2.0-0" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  }
+}
