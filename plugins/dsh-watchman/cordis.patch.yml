@@ -1,0 +1,5 @@
+# dsh-watchman bundle patch：把宿主半边挂进 profile 的宿主组装里。
+# 由 `dsh plugin --profile desktop add <本包>` 应用。
+- insert:
+    - id: watchman
+      name: dsh-watchman

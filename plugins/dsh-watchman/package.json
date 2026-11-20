@@ -1,0 +1,70 @@
+{
+  "name": "dsh-watchman",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "守夜人告警：把 DeepSeek Harness 的待审批 / 报错 / 任务结束推到手机（微信 Server酱 / Bark / 企业微信群机器人），设置页可视化配置。Push DSH approvals, errors and task completions to your phone via Server酱 / Bark / WeCom bot, with a visual settings panel.",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "lib",
+    "test",
+    "locale",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check lib/watchman.mjs && node --check lib/notifier.mjs",
+    "test": "node test/notify.selftest.mjs",
+    "start": "node lib/watchman.mjs",
+    "dry-run": "node lib/watchman.mjs --dry-run"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek-harness-plugin",
+    "alert",
+    "notify",
+    "notification",
+    "serverchan",
+    "bark",
+    "wecom",
+    "watchman",
+    "mobile-push",
+    "i18n",
+    "chinese"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beeasy-L/DSH-.git",
+    "directory": "plugins/dsh-watchman"
+  },
+  "homepage": "https://github.com/Beeasy-L/DSH-/tree/main/plugins/dsh-watchman",
+  "bugs": {
+    "url": "https://github.com/Beeasy-L/DSH-/issues"
+  },
+  "license": "MIT"
+}

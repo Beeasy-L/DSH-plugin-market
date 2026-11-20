@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+
+# 运行时数据（含推送凭据，绝不入库）
+config.json
+watchman.config.json
+watchman.log
+watchman.pid
+watchman.dedupe.json
+*.crt
+*.key
+
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

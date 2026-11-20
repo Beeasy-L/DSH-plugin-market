@@ -15,11 +15,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/beeeasy/dsh-plugin-repository.git"
+    "url": "git+https://github.com/Beeasy-L/DSH-.git",
+    "directory": "plugins/dsh-plugin-categorized"
   },
-  "homepage": "https://gitee.com/beeeasy/dsh-plugin-repository",
+  "homepage": "https://github.com/Beeasy-L/DSH-/tree/main/plugins/dsh-plugin-categorized",
   "bugs": {
-    "url": "https://gitee.com/beeeasy/dsh-plugin-repository/issues"
+    "url": "https://github.com/Beeasy-L/DSH-/issues"
   },
   "keywords": [
     "deepseek-harness",

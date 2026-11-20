@@ -1,13 +1,27 @@
 {
-  "$schema": "https://gitee.com/beeeasy/dsh-plugin-repository/raw/main/dsh-labels.json",
+  "$schema": "https://github.com/Beeasy-L/DSH-/raw/main/dsh-labels.json",
   "labels": [
     { "name": "dsh-plugin", "color": "#0052D9", "description": "DeepSeek Harness 插件" },
     { "name": "plugin-manager", "color": "#00A0E9", "description": "插件管理相关" },
     { "name": "plugin-categories", "color": "#00B42A", "description": "插件分类与整理" },
+    { "name": "notification", "color": "#F7BA1E", "description": "消息通知与推送" },
+    { "name": "mobile-push", "color": "#14C9C9", "description": "手机推送" },
     { "name": "i18n", "color": "#FF7D00", "description": "国际化与本地化" },
     { "name": "translation", "color": "#F7BA1E", "description": "自动翻译" },
     { "name": "chinese", "color": "#D91AD9", "description": "中文界面" },
     { "name": "productivity", "color": "#14C9C9", "description": "效率工具" },
     { "name": "enhancement", "color": "#7816FF", "description": "体验增强" }
+  ],
+  "plugins": [
+    {
+      "name": "dsh-plugin-categorized",
+      "path": "plugins/dsh-plugin-categorized",
+      "labels": ["dsh-plugin", "plugin-manager", "plugin-categories", "i18n", "translation", "chinese", "enhancement"]
+    },
+    {
+      "name": "dsh-watchman",
+      "path": "plugins/dsh-watchman",
+      "labels": ["dsh-plugin", "notification", "mobile-push", "productivity"]
+    }
   ]
 }
