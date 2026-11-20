@@ -1,0 +1,227 @@
+{
+  "meta": {
+    "zh": {
+      "siteTitle": "DSH 插件市场",
+      "tagline": "DeepSeek Harness 插件合集 —— 点开就在这一页看完，不用跳走。",
+      "browse": "在线浏览",
+      "installed": "已装插件",
+      "readMore": "查看介绍",
+      "close": "收起",
+      "install": "安装",
+      "installTitle": "安装",
+      "repo": "源码",
+      "docs": "完整文档",
+      "features": "功能",
+      "events": "推哪些事件",
+      "panels": "界面",
+      "boundary": "安全边界",
+      "screenshots": "截图",
+      "faq": "常见问题",
+      "back": "返回插件列表",
+      "copy": "复制",
+      "copied": "已复制",
+      "langBtn": "English",
+      "langNote": "点右上角切换整页语言"
+    },
+    "en": {
+      "siteTitle": "DSH Plugin Market",
+      "tagline": "A collection of DeepSeek Harness plugins — read every detail right here, no page jumps.",
+      "browse": "Browse online",
+      "installed": "plugins",
+      "readMore": "Read more",
+      "close": "Close",
+      "install": "Install",
+      "installTitle": "Install",
+      "repo": "Source",
+      "docs": "Full documentation",
+      "features": "Features",
+      "events": "Events",
+      "panels": "Panels",
+      "boundary": "Safety boundary",
+      "screenshots": "Screenshots",
+      "faq": "FAQ",
+      "back": "Back to the plugin list",
+      "copy": "Copy",
+      "copied": "Copied",
+      "langBtn": "中文",
+      "langNote": "Use the button at the top right to change the language"
+    }
+  },
+  "install": {
+    "zh": {
+      "ui": "在界面里装",
+      "uiSteps": [
+        "打开 DeepSeek Harness → 插件 → 添加插件 → 添加本地目录",
+        "选对应的 plugins/<包名> 目录",
+        "装完重启 DSH"
+      ],
+      "cli": "用命令行装",
+      "cliSteps": [
+        "git clone https://github.com/Beeasy-L/DSH-plugin-market.git",
+        "dsh plugin --profile desktop add \"file:C:\\path\\to\\DSH-plugin-market\\plugins\\<包名>\""
+      ]
+    },
+    "en": {
+      "ui": "From the UI",
+      "uiSteps": [
+        "Open DeepSeek Harness → Plugins → Add plugin → Add local directory",
+        "Choose the matching plugins/<package-name> directory",
+        "Restart DSH afterwards"
+      ],
+      "cli": "From the command line",
+      "cliSteps": [
+        "git clone https://github.com/Beeasy-L/DSH-plugin-market.git",
+        "dsh plugin --profile desktop add \"file:C:\\path\\to\\DSH-plugin-market\\plugins\\<package-name>\""
+      ]
+    }
+  },
+  "plugins": [
+    {
+      "id": "dsh-plugin-categorized",
+      "icon": "../plugins/dsh-plugin-categorized/icon-180.png",
+      "repo": "https://github.com/Beeasy-L/DSH-plugin-market/tree/main/plugins/dsh-plugin-categorized",
+      "docs": "plugins/dsh-plugin-categorized/README.md",
+      "tags": { "zh": ["界面增强", "分类", "自动翻译"], "en": ["UI", "Categories", "Auto-translation"] },
+      "name": { "zh": "插件分类", "en": "Plugin Categories" },
+      "summary": {
+        "zh": "给插件页加一个「分类」标签：装了多少插件、按什么用、叫什么中文名，一屏看清。外加自动翻译——以后新装的插件，插件页上自动显示中文标题与说明。",
+        "en": "A Categories tab for the Plugins page: how many plugins you have, what each is for, and what its Chinese name is — all on one screen. Plus automatic translation: newly installed plugins show Chinese titles and descriptions on their own."
+      },
+      "sections": [
+        {
+          "id": "problem",
+          "title": { "zh": "痛点：插件装多了，就找不到", "en": "The problem: too many plugins, no way to find them" },
+          "body": {
+            "zh": "插件页只有「已安装」和「发现」两个视角。装了二三十个插件之后：\n\n- **列表是一维的** —— 视觉、皮肤、聊天、量化、动画、笔记……全挤在一起，看不出这台机器上到底装了什么。\n- **名字和说明多半是英文** —— 一个叫 dsh-waste-market 的包，你需要点进去才知道它是 A 股看盘。\n- **每次装新插件都要重读一遍** —— 新装的东西不知道归到哪一摞，页面也不会告诉你它是干什么的。",
+            "en": "The Plugins page shows you *Installed* and *Discover*. After installing twenty or thirty plugins, that view stops working well:\n\n- **The list is one-dimensional.** Vision, skins, chat, quant, animation, notes — all in a single column. You can't tell at a glance what's actually on this machine.\n- **Names and descriptions are usually English.** You have to open dsh-waste-market to learn it's an A-share market dashboard.\n- **Every new install means re-reading everything.** You don't know where the new thing belongs, and the page won't tell you what it does."
+          }
+        },
+        {
+          "id": "features",
+          "title": { "zh": "三个卖点", "en": "Three features" },
+          "body": {
+            "zh": "**1. 分类标签页** —— 插件从「一堆」变成「几摞」。视觉与视频、界面与美化、用量与计费、即时通讯、远程控制、金融行情、开发与效率、系统与维护、官方核心、其他，每组带插件数量。\n\n**2. 自动翻译** —— 装完新插件，插件页上立刻显示中文名和中文说明。走宿主默认模型，只翻公开元数据，失败自动跳过。首次安装还会补扫历史插件。\n\n**3. 手动改分类** —— 内置规则认不出的落进「其他」，在那一行右侧下拉即可改；也支持新建分类和「自动归类」还原。改动存浏览器本地，不动 profile 文件。",
+            "en": "**1. A Categories tab** — plugins become shelves, not a pile. Vision & video, UI & theming, Usage & billing, Messaging, Remote control, Markets, Dev & productivity, System & maintenance, Official core, Other. Each group shows its plugin count.\n\n**2. Automatic translation** — install a plugin and its Chinese title and description appear immediately. It uses the host's default model, translates public metadata only, and skips failures quietly. The first install also backfills existing English-only plugins.\n\n**3. Change categories yourself** — plugins the built-in rules don't recognize land in \"Other\"; pick a category from the dropdown on that row, create a new one, or fall back to \"Auto\". Your choices live in the browser and never touch a profile file."
+          }
+        },
+        {
+          "id": "boundary",
+          "title": { "zh": "边界", "en": "Boundary" },
+          "body": {
+            "zh": "官方「已安装」标签原样保留，这个插件只管**看**和**分**，不碰你的开关。自动翻译只翻插件的公开元数据（包名与描述），不读你的会话内容或项目文件。",
+            "en": "The official *Installed* tab is completely unchanged — this plugin only *views* and *groups*; it never touches your switches. Automatic translation only touches public metadata (package name and description) — never your conversations or project files."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dsh-watchman",
+      "icon": "../plugins/dsh-watchman/icon-180.png",
+      "repo": "https://github.com/Beeasy-L/DSH-plugin-market/tree/main/plugins/dsh-watchman",
+      "docs": "plugins/dsh-watchman/README.md",
+      "tags": { "zh": ["通知", "手机推送"], "en": ["Notifications", "Mobile push"] },
+      "name": { "zh": "守夜人告警", "en": "Watchman alerts" },
+      "summary": {
+        "zh": "把 DeepSeek Harness 的待审批、报错、任务结束推到手机（Server酱 / Bark / 企业微信群机器人）。你在电脑上让 DSH 跑长任务、人离开了，插件替你盯着，出事喊你。",
+        "en": "Push DSH approval requests, errors and task completions to your phone (Server酱 / Bark / WeCom bot). Let DSH run a long job while you're away — the plugin keeps watch and calls you when something needs you."
+      },
+      "sections": [
+        {
+          "id": "features",
+          "title": { "zh": "特性", "en": "Features" },
+          "body": {
+            "zh": "- **三种推送通道**：Server酱（微信）、Bark（iPhone）、企业微信群机器人；填完整地址或只填 key 都认\n- **设置页可视化配置**：状态、通道、推哪些事件、发送测试、看日志，不用敲配置\n- **事件分流 + 分级**：🔴 报错/登录态失效 · 🟡 待审批/断线 · 🟢 任务结束\n- **去重防抖**：同一事件在窗口期（默认 30 分钟）只推一次，去重表落盘，进程重启也不会重复推\n- **独立进程**：订阅与推送跑在独立进程里，宿主崩了，已连上的链路照跑\n- **凭据不出本机**：地址只以打码形式（如 SCT123…aBcD）返回给界面与日志",
+            "en": "- **Three channels**: Server酱 (WeChat), Bark (iPhone), WeCom group bot — a full URL or just the key both work\n- **Visual settings panel**: status, channel, which events to push, send a test, read the log — no config editing\n- **Classification and severity**: 🔴 error / auth failure · 🟡 approval / disconnect · 🟢 task end\n- **Deduplication**: the same event fires once per window (30 minutes by default); the dedupe table is persisted, so a restart doesn't re-push\n- **Standalone process**: subscription and delivery run outside the host, so a host crash doesn't kill an established alert path\n- **Credentials stay local**: addresses are only ever returned to the UI and logs in masked form (e.g. SCT123…aBcD)"
+          }
+        },
+        {
+          "id": "events",
+          "title": { "zh": "推哪些事件", "en": "Events" },
+          "table": {
+            "zh": {
+              "head": ["事件", "级别", "默认"],
+              "rows": [
+                ["`approval-request` 工具放行待批", "🟡", "开"],
+                ["`user-question` / `plan-review` 等你回答", "🟡", "开"],
+                ["`session-error` 任务报错", "🔴", "开"],
+                ["`turn-end` 任务结束", "🟢", "开"],
+                ["`gap` 订阅断线", "🟡", "开"],
+                ["`auth-error` harness cookie 失效", "🔴", "开"]
+              ]
+            },
+            "en": {
+              "head": ["Event", "Severity", "Default"],
+              "rows": [
+                ["`approval-request` a tool needs your approval", "🟡", "on"],
+                ["`user-question` / `plan-review` waiting on you", "🟡", "on"],
+                ["`session-error` the task errored", "🔴", "on"],
+                ["`turn-end` the task finished", "🟢", "on"],
+                ["`gap` the subscription dropped", "🟡", "on"],
+                ["`auth-error` the harness cookie expired", "🔴", "on"]
+              ]
+            }
+          }
+        },
+        {
+          "id": "quiet",
+          "title": { "zh": "安静模式", "en": "Quiet mode" },
+          "body": {
+            "zh": "「任务结束」想要**安静模式**：关掉 `turnEnd`，则只有异常结束（`error` / `aborted` / `blocked` / `interrupted` / `max-tokens`）才推。",
+            "en": "Want \"task finished\" to be quiet? Turn off `turnEnd` and only abnormal endings (`error` / `aborted` / `blocked` / `interrupted` / `max-tokens`) get pushed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dsh-qq-panel",
+      "icon": "../plugins/dsh-qq-panel/icon-180.png",
+      "repo": "https://github.com/Beeasy-L/DSH-plugin-market/tree/main/plugins/dsh-qq-panel",
+      "docs": "plugins/dsh-qq-panel/README.md",
+      "tags": { "zh": ["即时通讯", "设置面板"], "en": ["Messaging", "Settings panel"] },
+      "name": { "zh": "QQ 面板", "en": "QQ panel" },
+      "summary": {
+        "zh": "QQ 桥接（qq-bridge / OneBot v11）的设置面板：人格卡编辑与热切换、表情包与备注管理、主动发言等行为参数、运行状态与日志。只读写文件，不碰 QQ 客户端。",
+        "en": "A settings panel for the QQ bridge (qq-bridge / OneBot v11): persona card editing with hot-swap, sticker and remark management, proactive-reply behaviour settings, runtime status and logs. It only reads and writes files — it never touches the QQ client."
+      },
+      "sections": [
+        {
+          "id": "panels",
+          "title": { "zh": "界面", "en": "Panels" },
+          "table": {
+            "zh": {
+              "head": ["标签页", "做什么"],
+              "rows": [
+                ["**人格卡**", "列出 `roles/*.md`，在等宽编辑器里改；保存前自动备份到 `人格卡/<role>/版本/`（保留最近 30 份）；热切换当前人格卡（逐条消息注入）；显示字数与 lint 提示"],
+                ["**表情包**", "列出表情素材与标题/大小/上传状态；编辑模型选图时用的备注；通过 OneBot `add_custom_face` 把表情上传进 QQ 收藏"],
+                ["**行为**", "主人 QQ、私聊/群聊白名单、主动发言（开关、闲置阈值、检查间隔、概率）、唤醒模式、是否允许模型自设潜水计时、思考强度；写入 `config.json`（桥接重启后生效）"],
+                ["**状态 / 日志**", "桥接可达性、运行模式、连接状态、当前人格卡；`state/bridge.log` 尾部"]
+              ]
+            },
+            "en": {
+              "head": ["Tab", "What it does"],
+              "rows": [
+                ["**Persona**", "Lists `roles/*.md` and edits them in a monospace editor; backs up to `人格卡/<role>/版本/` before saving (keeps the last 30); hot-swaps the active persona (injected per message); shows a character count and lint hints"],
+                ["**Stickers**", "Lists sticker assets with title, size and upload state; edits the per-sticker note the model uses when picking an image; uploads a sticker into QQ favourites via OneBot `add_custom_face`"],
+                ["**Behaviour**", "Owner QQ, private/group allow-lists, proactive messaging (on/off, idle threshold, check interval, probability), wake mode, whether the model may set its own dive timer, reasoning effort; writes `config.json` (takes effect after the bridge restarts)"],
+                ["**Status / logs**", "Bridge reachability, mode, connection state, active persona; tail of `state/bridge.log`"]
+              ]
+            }
+          }
+        },
+        {
+          "id": "boundary",
+          "title": { "zh": "安全边界", "en": "Safety boundary" },
+          "body": {
+            "zh": "只**读和写文件** —— 从不启动/停止 SnowLuma，从不碰 QQ 客户端，从不主动发消息。\n\n**也能脱离 DSH 单跑**：`node server.mjs` → <http://127.0.0.1:3101>，两种模式共用同一套读写代码。",
+            "en": "It only **reads and writes files** — it never starts or stops SnowLuma, never touches the QQ client, never sends a message.\n\n**Also runs without DSH**: `node server.mjs` → <http://127.0.0.1:3101>. Both modes share the same read/write code."
+          }
+        }
+      ],
+      "screenshots": [
+        "../plugins/dsh-qq-panel/docs/screenshot-persona.png",
+        "../plugins/dsh-qq-panel/docs/screenshot-stickers.png",
+        "../plugins/dsh-qq-panel/docs/screenshot-behaviour.png"
+      ]
+    }
+  ]
+}
