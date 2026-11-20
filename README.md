@@ -24,6 +24,7 @@
 |---|---|---|
 | **[dsh-plugin-categorized](plugins/dsh-plugin-categorized/)** | **插件分类** —— 插件页新增「分类」标签，已装插件按用途自动分组；新装插件自动补中文标题与说明 | 界面增强 · 分类 · 自动翻译 |
 | **[dsh-watchman](plugins/dsh-watchman/)** | **守夜人告警** —— 把待审批 / 报错 / 任务结束推到手机（Server酱 / Bark / 企业微信群机器人），设置页可视化配置 | 通知 · 移动推送 |
+| **[dsh-qq-panel](plugins/dsh-qq-panel/)** | **QQ 面板** —— QQ 桥接（OneBot v11）的设置面板：人格卡编辑与热切换、表情包与备注管理、主动发言等行为参数、运行状态与日志 | 即时通讯 · 设置面板 |
 
 ### 安装
 
@@ -32,7 +33,7 @@
 **在界面里装**
 
 1. 打开 DeepSeek Harness → **插件 → 添加插件 → 添加本地目录**
-2. 选 `plugins/dsh-plugin-categorized` 或 `plugins/dsh-watchman`
+2. 选 `plugins/dsh-plugin-categorized`、`plugins/dsh-watchman` 或 `plugins/dsh-qq-panel`
 3. 装完**重启 DSH**（宿主半边在启动时装配）
 
 **用命令行装**
@@ -44,6 +45,7 @@ git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 # 装其中一个插件（--profile 按你的 profile 名改）
 dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
 dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-watchman"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-qq-panel"
 ```
 
 ### 仓库结构
@@ -99,6 +101,7 @@ This repository collects **DeepSeek Harness** (DSH) plugins. Each plugin lives i
 |---|---|---|
 | **[dsh-plugin-categorized](plugins/dsh-plugin-categorized/)** | **Plugin Categories** — a Categories tab that groups installed plugins by purpose, plus automatic Chinese titles and descriptions for newly installed plugins | UI enhancement · Categorization · Auto-translation |
 | **[dsh-watchman](plugins/dsh-watchman/)** | **Watchman alerts** — push approvals, errors and task completions to your phone (Server酱 / Bark / WeCom bot), with a visual settings panel | Notifications · Mobile push |
+| **[dsh-qq-panel](plugins/dsh-qq-panel/)** | **QQ panel** — a settings panel for the QQ bridge (OneBot v11): persona card editing with hot-swap, sticker and remark management, proactive-reply behaviour settings, runtime status and logs | Messaging · Settings panel |
 
 ### Installation
 
@@ -107,7 +110,7 @@ Each plugin installs independently. Point the installer at its own subdirectory:
 **From the UI**
 
 1. Open DeepSeek Harness → **Plugins → Add plugin → Add local directory**
-2. Choose `plugins/dsh-plugin-categorized` or `plugins/dsh-watchman`
+2. Choose `plugins/dsh-plugin-categorized`, `plugins/dsh-watchman` or `plugins/dsh-qq-panel`
 3. **Restart DSH** afterwards (the host half is assembled at startup)
 
 **From the command line**
@@ -117,6 +120,7 @@ git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 
 dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
 dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-watchman"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-qq-panel"
 ```
 
 ### Repository layout
@@ -136,16 +140,27 @@ DSH-plugin-market/
     │   ├── locale/{zh,en}.json
     │   ├── docs/DETAIL.md
     │   └── icon.svg
-    └── dsh-watchman/             Watchman alerts
+    ├── dsh-watchman/             Watchman alerts
+    │   ├── package.json
+    │   ├── lib/
+    │   │   ├── index.js          Host half (4 routes)
+    │   │   ├── client.js         Settings panel section
+    │   │   ├── watchman.mjs      Standalone process: subscribe + classify + dedupe
+    │   │   └── notifier.mjs      Channel layer: Server酱 / Bark / WeCom
+    │   ├── test/notify.selftest.mjs
+    │   ├── locale/{zh,en}.json
+    │   └── icon.svg
+    └── dsh-qq-panel/             QQ panel
         ├── package.json
         ├── lib/
-        │   ├── index.js          Host half (4 routes)
-        │   ├── client.js         Settings panel section
-        │   ├── watchman.mjs      Standalone process: subscribe + classify + dedupe
-        │   └── notifier.mjs      Channel layer: Server酱 / Bark / WeCom
-        ├── test/notify.selftest.mjs
-        ├── locale/{zh,en}.json
-        └── icon.svg
+        │   ├── index.js          Host half
+        │   └── client.js         Settings panel section
+        ├── panel.html            Standalone panel page
+        ├── server.mjs            Standalone panel server
+        ├── scripts/              Install / uninstall helpers
+        ├── tests/                Host and client tests
+        ├── docs/                 Screenshots
+        └── screenshots.json
 ```
 
 ### Contributing a plugin

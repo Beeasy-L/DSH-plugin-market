@@ -6,6 +6,8 @@
     { "name": "plugin-categories", "color": "#00B42A", "description": "插件分类与整理" },
     { "name": "notification", "color": "#F7BA1E", "description": "消息通知与推送" },
     { "name": "mobile-push", "color": "#14C9C9", "description": "手机推送" },
+    { "name": "messaging", "color": "#3370FF", "description": "即时通讯" },
+    { "name": "settings-panel", "color": "#722ED1", "description": "设置面板" },
     { "name": "i18n", "color": "#FF7D00", "description": "国际化与本地化" },
     { "name": "translation", "color": "#F7BA1E", "description": "自动翻译" },
     { "name": "chinese", "color": "#D91AD9", "description": "中文界面" },
@@ -22,6 +24,11 @@
       "name": "dsh-watchman",
       "path": "plugins/dsh-watchman",
       "labels": ["dsh-plugin", "notification", "mobile-push", "productivity"]
+    },
+    {
+      "name": "dsh-qq-panel",
+      "path": "plugins/dsh-qq-panel",
+      "labels": ["dsh-plugin", "messaging", "settings-panel", "enhancement"]
     }
   ]
 }
