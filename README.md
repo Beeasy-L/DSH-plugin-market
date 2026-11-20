@@ -317,7 +317,7 @@ node --check client.js
 
 ## 相关插件 · Related plugins
 
-- [dsh-skill-palette](https://gitee.com/beeeasy/dsh-plugin-repository) —— 技能选择器，带中文翻译 · Skill picker with Chinese translation
+- [dsh-skill-palette](https://github.com/AlLHHH/dsh-skill-palette) —— 技能选择器，带中文翻译 · Skill picker with Chinese translation
 - 欢迎在 Issues 里推荐更多值得分类的插件 · Feel free to suggest plugins worth categorizing in the Issues
 
 ---
