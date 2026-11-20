@@ -27,20 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Copy site into the Pages artifact
-        run: |
-          mkdir -p _site
-          cp -r site/. _site/
-          # 图标与截图在仓库根的 plugins/ 下，复制成站内相对路径
-          mkdir -p _site/plugins
-          for d in dsh-plugin-categorized dsh-watchman dsh-qq-panel; do
-            mkdir -p "_site/plugins/$d"
-            cp "plugins/$d/icon-180.png" "_site/plugins/$d/" 2>/dev/null || true
-            if [ -d "plugins/$d/docs" ]; then
-              mkdir -p "_site/plugins/$d/docs"
-              cp "plugins/$d/docs/"*.png "_site/plugins/$d/docs/" 2>/dev/null || true
-            fi
-          done
+      - name: Refresh site assets
+        run: node site/sync-assets.cjs
+
+      - name: Validate site data
+        run: node site/check-data.cjs
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -48,7 +39,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
