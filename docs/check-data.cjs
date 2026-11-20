@@ -1,8 +1,9 @@
 // 站点数据完整性检查：确认中英字段齐全、表格列数一致。
+//   node docs/check-data.cjs
 const fs = require('node:fs')
 const path = require('node:path')
 
-const site = process.env.SITE_DIR
+const site = process.env.SITE_DIR || __dirname
 const raw = fs.readFileSync(path.join(site, 'data', 'plugins.json'), 'utf8')
 const D = JSON.parse(raw)
 
