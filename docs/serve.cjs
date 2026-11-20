@@ -1,10 +1,11 @@
 // 本地预览服务器：正确的 UTF-8 charset + 正确的 MIME。
-// node site/serve.cjs [port]
+// node docs/serve.cjs [port]
 const http = require('node:http')
 const fs = require('node:fs')
 const path = require('node:path')
 
 const root = path.join(__dirname, '..')
+const site = __dirname
 const port = Number(process.argv[2] || 8899)
 
 const MIME = {
@@ -22,7 +23,10 @@ const MIME = {
 
 http.createServer((req, res) => {
   let rel = decodeURIComponent(req.url.split('?')[0])
-  if (rel === '/' || rel === '') rel = '/site/index.html'
+  // 站点以 docs/ 为根（与 GitHub Pages 的 /docs 源一致），
+  // 所以站点内的相对路径要从 docs/ 下解析。
+  if (rel === '/' || rel === '') rel = '/docs/index.html'
+  else if (!rel.startsWith('/docs/')) rel = '/docs' + rel
   const file = path.join(root, rel)
   if (!file.startsWith(root)) {
     res.writeHead(403); res.end('forbidden'); return
@@ -40,5 +44,5 @@ http.createServer((req, res) => {
     res.end(buf)
   })
 }).listen(port, '127.0.0.1', () => {
-  console.log('serving ' + root + ' on http://127.0.0.1:' + port + '/  (site at /site/)')
+  console.log('serving site at http://127.0.0.1:' + port + '/  (docs/ is the site root)')
 })

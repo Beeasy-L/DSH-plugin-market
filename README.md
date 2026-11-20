@@ -16,7 +16,9 @@
 
 ## 🌐 在线浏览 · Browse online
 
-**→ https://beeeasy-l.github.io/DSH-plugin-market/**
+**→ https://beeeasy-l.github.io/DSH-plugin-market/** （GitHub Pages）
+
+或 **https://beeeasy.gitee.io/dsh-plugin-repository/** （Gitee Pages）
 
 网页版支持：
 
@@ -66,7 +68,7 @@ DSH-plugin-market/
 ├── CHANGELOG.md
 ├── LICENSE
 ├── dsh-labels.json            ← 仓库标签声明
-├── site/                      ← 网页版（GitHub Pages）
+├── docs/                      ← 网页版（GitHub Pages）
 └── plugins/
     ├── dsh-plugin-categorized/   插件分类
     ├── dsh-watchman/             守夜人告警
@@ -115,7 +117,7 @@ DSH-plugin-market/
 ├── CHANGELOG.md
 ├── LICENSE
 ├── dsh-labels.json            ← repository label declarations
-├── site/                      ← the website (GitHub Pages)
+├── docs/                      ← the website (GitHub Pages)
 └── plugins/
     ├── dsh-plugin-categorized/   Plugin Categories
     ├── dsh-watchman/             Watchman alerts

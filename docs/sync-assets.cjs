@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * 把图标与截图复制进 site/ 内部，让站点自包含。
+ * 把图标与截图复制进站点目录，让站点自包含。
  *
- * 站点从 site/ 目录发布时，../plugins/ 越出了发布根；复制进来后
+ * 站点从 docs/ 目录发布时，../plugins/ 越出了发布根；复制进来后
  * 任何静态托管（GitHub Pages / Gitee Pages / 本地）都能直接用。
  *
- *   node site/sync-assets.cjs
+ *   node docs/sync-assets.cjs
  */
 const fs = require('node:fs')
 const path = require('node:path')
