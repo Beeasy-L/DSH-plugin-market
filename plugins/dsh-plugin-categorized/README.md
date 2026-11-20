@@ -90,10 +90,10 @@ DeepSeek Harness 的插件页只有「已安装」和「发现」两个视角。
 
 ```bash
 # 克隆整个仓库
-git clone https://github.com/Beeasy-L/DSH-.git
+git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 
 # 装本插件
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-plugin-categorized"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
 ```
 
 然后在 DeepSeek Harness 里按「方式二」添加本地目录。
@@ -239,10 +239,10 @@ Open **Plugins → Add plugin** in DeepSeek Harness, search for `dsh-plugin-cate
 
 ```bash
 # clone the whole repository
-git clone https://github.com/Beeasy-L/DSH-.git
+git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 
 # install this plugin
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-plugin-categorized"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
 ```
 
 Then use "Option 2" in DeepSeek Harness to add the cloned directory.

@@ -59,12 +59,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Beeasy-L/DSH-.git",
+    "url": "git+https://github.com/Beeasy-L/DSH-plugin-market.git",
     "directory": "plugins/dsh-watchman"
   },
-  "homepage": "https://github.com/Beeasy-L/DSH-/tree/main/plugins/dsh-watchman",
+  "homepage": "https://github.com/Beeasy-L/DSH-plugin-market/tree/main/plugins/dsh-watchman",
   "bugs": {
-    "url": "https://github.com/Beeasy-L/DSH-/issues"
+    "url": "https://github.com/Beeasy-L/DSH-plugin-market/issues"
   },
   "license": "MIT"
 }

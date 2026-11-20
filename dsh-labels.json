@@ -1,5 +1,5 @@
 {
-  "$schema": "https://github.com/Beeasy-L/DSH-/raw/main/dsh-labels.json",
+  "$schema": "https://github.com/Beeasy-L/DSH-plugin-market/raw/main/dsh-labels.json",
   "labels": [
     { "name": "dsh-plugin", "color": "#0052D9", "description": "DeepSeek Harness 插件" },
     { "name": "plugin-manager", "color": "#00A0E9", "description": "插件管理相关" },

@@ -39,17 +39,17 @@
 
 ```bash
 # 克隆整个仓库
-git clone https://github.com/Beeasy-L/DSH-.git
+git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 
 # 装其中一个插件（--profile 按你的 profile 名改）
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-plugin-categorized"
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-watchman"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-watchman"
 ```
 
 ### 仓库结构
 
 ```
-DSH-/
+DSH-plugin-market/
 ├── README.md                  ← 本文件（仓库索引）
 ├── CHANGELOG.md
 ├── LICENSE
@@ -113,16 +113,16 @@ Each plugin installs independently. Point the installer at its own subdirectory:
 **From the command line**
 
 ```bash
-git clone https://github.com/Beeasy-L/DSH-.git
+git clone https://github.com/Beeasy-L/DSH-plugin-market.git
 
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-plugin-categorized"
-dsh plugin --profile desktop add "file:C:\path\to\DSH-\plugins\dsh-watchman"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-plugin-categorized"
+dsh plugin --profile desktop add "file:C:\path\to\DSH-plugin-market\plugins\dsh-watchman"
 ```
 
 ### Repository layout
 
 ```
-DSH-/
+DSH-plugin-market/
 ├── README.md                  ← this file (repository index)
 ├── CHANGELOG.md
 ├── LICENSE
