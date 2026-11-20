@@ -169,30 +169,103 @@ async function translatePlugin(ctx, pkgName, enDescription) {
   return { title: title.slice(0, 40), description: description.slice(0, 200) }
 }
 
-/** 翻译并写盘一个插件；单个失败不抛给队列，由调用方静默。 */
+/**
+ * 翻译并写盘一个插件；单个失败不抛给队列，由调用方静默。
+ *
+ * 必须同时写 en.json 与 zh.json：DSH 的 locale 加载以 en.json 为锚点
+ * （dictionariesOf(englishPath…) 从它所在目录遍历其他语言）。只写 zh.json
+ * 会让整个 locale 目录不被加载，中文名反而显示不出来。
+ */
 async function translateOne(ctx, target) {
   const zh = await translatePlugin(ctx, target.name, target.description)
   const localeDir = path.join(target.dir, 'locale')
   mkdirSync(localeDir, { recursive: true })
+
   atomicWrite(path.join(localeDir, 'zh.json'), JSON.stringify({ meta: { title: zh.title, description: zh.description } }, null, 2) + '\n')
-  // 补 exports，让 locale 文件能被插件的 meta 解析读到。
+
+  // en.json 是锚点：没有它，zh.json 永远不会被读到。
+  const enPath = path.join(localeDir, 'en.json')
+  if (!existsSync(enPath)) {
+    atomicWrite(enPath, JSON.stringify({
+      meta: {
+        title: target.pkg.name,
+        description: target.description,
+      },
+    }, null, 2) + '\n')
+  }
+
+  // 补 exports / files，让 locale 文件能被插件的 meta 解析读到、且更新时不丢。
+  let pkgDirty = false
   if (target.pkg.exports && typeof target.pkg.exports === 'object' && !Array.isArray(target.pkg.exports)) {
     const hasLocale = Object.keys(target.pkg.exports).some((key) => key.startsWith('./locale'))
     if (!hasLocale) {
       target.pkg.exports['./locale/*.json'] = './locale/*.json'
-      atomicWrite(target.pkgPath, JSON.stringify(target.pkg, null, 2) + '\n')
+      pkgDirty = true
     }
+  }
+  if (Array.isArray(target.pkg.files) && !target.pkg.files.includes('locale')) {
+    target.pkg.files.push('locale')
+    pkgDirty = true
+  }
+  if (pkgDirty) {
+    atomicWrite(target.pkgPath, JSON.stringify(target.pkg, null, 2) + '\n')
   }
   return { name: target.name, title: zh.title }
 }
 
-/** 跑一轮扫描：只处理确实缺 zh.json 的第三方插件。 */
+/**
+ * 补锚点：已有 zh.json 但缺 en.json 的插件，中文同样显示不出来。
+ * 这修的是历史遗留（旧版只写 zh.json），不改动已有的 en.json。
+ */
+function needsAnchor(dir) {
+  let real = dir
+  try {
+    real = realpathSync(dir)
+  } catch {
+    return null
+  }
+  let pkg
+  try {
+    pkg = JSON.parse(readFileSync(path.join(real, 'package.json'), 'utf8'))
+  } catch {
+    return null
+  }
+  if (typeof pkg?.name !== 'string' || pkg.name === '') return null
+  if (pkg.name.startsWith('@deepseek-ai/')) return null
+  if (pkg.dsh === undefined || pkg.dsh === null) return null
+  const localeDir = path.join(real, 'locale')
+  if (!existsSync(path.join(localeDir, 'zh.json'))) return null
+  if (existsSync(path.join(localeDir, 'en.json'))) return null
+  return { dir: real, pkg, pkgPath: path.join(real, 'package.json') }
+}
+
+/** 给缺锚点的插件补一个 en.json（内容用包名与英文描述）。 */
+function addAnchor(target) {
+  const description = typeof target.pkg.description === 'string' ? target.pkg.description : ''
+  const en = { meta: { title: target.pkg.name, description } }
+  atomicWrite(path.join(target.dir, 'locale', 'en.json'), JSON.stringify(en, null, 2) + '\n')
+  return target.pkg.name
+}
+
+/** 跑一轮扫描：先补 en.json 锚点（历史遗留），再翻译缺 zh.json 的插件。 */
 async function scan(ctx) {
   const profile = asRecord(ctx.get('profileContext'))
   const profileDir = typeof profile?.dir === 'string' ? profile.dir : ''
   if (profileDir === '') return 0
   let done = 0
   for (const dir of installedPluginDirs(profileDir)) {
+    // 1) 已有 zh.json 却缺 en.json 的：补锚点，不调模型。
+    const anchor = needsAnchor(dir)
+    if (anchor !== null) {
+      try {
+        addAnchor(anchor)
+        done += 1
+      } catch {
+        /* 写不进去就算了 */
+      }
+      continue
+    }
+    // 2) 缺 zh.json 的：翻译，同时写 en.json 锚点。
     const target = needsTranslation(dir)
     if (target === null) continue
     try {

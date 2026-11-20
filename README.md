@@ -16,9 +16,7 @@
 
 ## 🌐 在线浏览 · Browse online
 
-**→ https://beeeasy-l.github.io/DSH-plugin-market/** （GitHub Pages）
-
-或 **https://beeeasy.gitee.io/dsh-plugin-repository/** （Gitee Pages）
+**→ https://beeeasy-l.github.io/DSH-plugin-market/**
 
 网页版支持：
 
