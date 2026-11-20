@@ -3,7 +3,7 @@
 > 给 DeepSeek Harness 的插件页加一个**分类**标签：装了多少插件、按什么用、叫什么中文名，一屏看清。
 > 外加**自动翻译**——以后新装的插件，插件页上自动显示中文标题与说明。
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/YOUR_USERNAME/dsh-plugin-categorized)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://gitee.com/beeeasy/dsh-plugin-repository)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-purple)](https://github.com/deepseek-ai/DeepSeek-Harness)
 
@@ -81,7 +81,7 @@ DeepSeek Harness 的插件页只有「已安装」和「发现」两个视角。
 
 ```bash
 # 克隆后在本机安装
-git clone https://github.com/YOUR_USERNAME/dsh-plugin-categorized.git
+git clone https://gitee.com/beeeasy/dsh-plugin-repository.git
 ```
 
 然后在 DeepSeek Harness 里按「方式二」添加本地目录。
@@ -163,7 +163,7 @@ node --check client.js
 
 ## 相关插件
 
-- [dsh-skill-palette](https://github.com/YOUR_USERNAME/dsh-skill-palette) —— 技能选择器，带中文翻译
+- [dsh-skill-palette](https://gitee.com/beeeasy/dsh-plugin-repository) —— 技能选择器，带中文翻译
 - 欢迎在 Issues 里推荐更多值得分类的插件
 
 ---

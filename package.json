@@ -13,6 +13,14 @@
     "./icon": "./icon.svg"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/beeeasy/dsh-plugin-repository.git"
+  },
+  "homepage": "https://gitee.com/beeeasy/dsh-plugin-repository",
+  "bugs": {
+    "url": "https://gitee.com/beeeasy/dsh-plugin-repository/issues"
+  },
   "keywords": [
     "deepseek-harness",
     "dsh",
