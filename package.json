@@ -25,11 +25,19 @@
     "deepseek-harness",
     "dsh",
     "dsh-plugin",
+    "dsh-plugin-categorized",
+    "deepseek-harness-plugin",
     "plugin-manager",
     "plugin-categories",
+    "plugin-category",
+    "plugin-management",
     "i18n",
+    "internationalization",
     "translation",
-    "chinese"
+    "auto-translate",
+    "localization",
+    "chinese",
+    "zh-cn"
   ],
   "files": [
     "index.js",
