@@ -7,10 +7,10 @@
 
 **A Categories tab for the DeepSeek Harness Plugins page — plus automatic Chinese localization for newly installed plugins.**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://gitee.com/beeeasy/dsh-plugin-repository)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://beeasy-l.github.io/DSH-plugin-market/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-purple)](https://github.com/deepseek-ai/DeepSeek-Harness)
-[![DSH](https://img.shields.io/badge/DSH-plugin-0052D9-blue)](https://gitee.com/beeeasy/dsh-plugin-repository)
+[![DSH](https://img.shields.io/badge/DSH-plugin-0052D9-blue)](https://beeasy-l.github.io/DSH-plugin-market/)
 [![i18n](https://img.shields.io/badge/i18n-中文%20%7C%20English-orange)](locale/zh.json)
 
 </div>

@@ -6,7 +6,7 @@
 **A collection of DeepSeek Harness plugins — read every detail right here, no page jumps.**
 
 [![Plugins](https://img.shields.io/badge/plugins-3-0052D9-blue)](plugins)
-[![Website](https://img.shields.io/badge/website-online-00B42A)](https://beeeasy-l.github.io/DSH-plugin-market/)
+[![Website](https://img.shields.io/badge/website-online-00B42A)](https://beeasy-l.github.io/DSH-plugin-market/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-DeepSeek%20Harness-purple)](https://github.com/deepseek-ai/DeepSeek-Harness)
 
@@ -16,7 +16,7 @@
 
 ## 🌐 在线浏览 · Browse online
 
-**→ https://beeeasy-l.github.io/DSH-plugin-market/**
+**→ https://beeasy-l.github.io/DSH-plugin-market/**
 
 网页版支持：
 
